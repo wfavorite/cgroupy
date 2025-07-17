@@ -1,0 +1,7 @@
+[project]
+name = "cgtool"
+description = "A PoC refresher project for Python and cgroups"
+requires-python = ">= 3.10"
+authors = [
+    {name = "William Favorite", email = "wfavorit@gmail.com"},
+]

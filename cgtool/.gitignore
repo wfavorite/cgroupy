@@ -1,0 +1,4 @@
+# Basically another implementation of cgtool, but in a less idiomatic form.
+# ...like no main() and simpler / more rigid calling methodology. I am holding
+# on to it for no particular reason.
+listall.txt
