@@ -12,8 +12,14 @@
 ## Todos
 
 ```text
-[Q] Create a custom error type.
-[_] Clean up the module/class definition.
+[ ] Research explicit decorators for public / private.
+[ ] Research additional testing.
+[ ] Setup a github action for automated testing.
+[ ] Design for how this might be distributed in / 'frozen' for a real
+    deployment.
+[Q] Create a custom exception type. (I am Questioning this. It may be more
+    appropriate to just focus on internal assert()ions vs user-ish errors.)
+[_] Clean up the module/class definition / design.
 ```
 
 ## Done
