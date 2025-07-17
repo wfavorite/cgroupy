@@ -5,14 +5,12 @@ from cgtool.CGroup import CGroup
 import unittest
 
 
-
-
-
 class TestCGroup(unittest.TestCase):
 
     def test_controllers(self):
 
         # STUB: Test for raised exceptions
+        # STUB: Write tests that will raise exceptions
 
         controllers = CGroup.ingest_controllers("data/sys/fs/cgroup/cgroup.controllers")
         controllers_count = len(controllers)

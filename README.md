@@ -15,5 +15,16 @@ At this point it is just a day-ish of work, so is __far from complete__ with min
 
 ## Quick links
 
+### Documentation
+
 - [The version file](Version.md) - Contains version and todos.
 - [About The Effort](docs/AboutTheEffort.md) - Loose notes on things perhaps worth remembering or thinking about.
+
+### Code
+
+> __NOTE__
+>> I use the STUB keyword of inline-todos and hanging issues. I also use whitespace to denote things unresolved. (If a chunk of code is surrounded by whitespace, it is for a reason.) I also use the VOIR keyword for "hey look at this" kind of 'findings'. Both light up like christmas trees in my editor.
+
+- [The CGroup class](cgtool/CGroup/__init__.py)
+- [The cgtool tester](cgtool/__main__.py)
+- [Unit tests](tests/test_cgmod.py)

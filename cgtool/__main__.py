@@ -2,6 +2,7 @@
 # ^
 # |
 # +- No magic here. Not intended for production use!
+#    It would be named differently (for one) if it was.
 
 import json
 import sys
