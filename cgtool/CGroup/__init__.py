@@ -278,6 +278,7 @@ class CGroup:
             for line in kvfile:
                 pair = line.split()
 
+                # STUB: Unprotected access! Fix this.
                 key = pair[0]
                 value = pair[1]
                 kvpairs[key] = int(value)
