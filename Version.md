@@ -13,6 +13,17 @@
                   expected file formats was tightened. Discussion can be found
                   in the CGroup class documentation.
                 - All tests pass.
+                - Added tests to cover unexpected / edge-cases and assertions.
+                  Again... these drive *and* cover expected behaviours. This
+                  includes setup and tear-down of testing conditions that git
+                  will not support.
+                  Some things done:
+                  * Dumping more / structured data in the unittest assertions.
+                    It is nice to have the bad data when it fails rather than
+                    needing to go figure it out.
+                  * Setup and tear down of test conditions around the tests.
+                - All tests pass.
+
 ```
 
 ## Todos

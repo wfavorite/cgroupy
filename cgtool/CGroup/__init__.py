@@ -189,6 +189,7 @@ class CGroup:
 
         # Now read in all the data. Exceptions are collected and converted
         # into error messages here.
+        # When failed, create an empty version of the expected thing.
         try:
             filename = 'cgroup.controllers'
             proper_path = os.path.join(dir, filename)
@@ -196,6 +197,7 @@ class CGroup:
         except Exception as e:
             err_msg = f'Failed to ingest {filename}: {repr(e)}'
             errors.append(err_msg)
+            cgroup['cgroup_controllers'] = []
             
         try:
             filename = 'cgroup.stat'
@@ -204,6 +206,7 @@ class CGroup:
         except Exception as e:
             err_msg = f'Failed to ingest {filename}: {repr(e)}'
             errors.append(err_msg)
+            cgroup['cgroup_stat'] = {}
 
         try:
             filename = 'cpu.stat'
@@ -212,6 +215,7 @@ class CGroup:
         except Exception as e:
             err_msg = f'Failed to ingest {filename}: {repr(e)}'
             errors.append(err_msg)
+            cgroup['cpu_stat'] = {}
 
         try:
             filename = 'cgroup.max.depth'
@@ -220,6 +224,7 @@ class CGroup:
         except Exception as e:
             err_msg = f'Failed to ingest {filename}: {repr(e)}'
             errors.append(err_msg)
+            cgroup['cgroup_max_depth'] = ""
 
         try:
             filename = 'cgroup.max.descendants'
@@ -228,11 +233,7 @@ class CGroup:
         except Exception as e:
             err_msg = f'Failed to ingest {filename}: {repr(e)}'
             errors.append(err_msg)
-
-
-
-        # STUB: Moar here.
-       
+            cgroup['cgroup_max_descendants'] = ""
 
         return cgroup, errors
 
