@@ -10,7 +10,7 @@ to feed two hungry birds with one seed.
 This is a *list* of "Python things" that were interesting, frustrating, new, or just general notes i wanted to take.
 
 > NOTE
->> My current "native tongue is Go, so this is where one may expect comparisons between the languages. I try to admit biases when i *know* they are present: __Don't drag one language's idioms into another!__
+>> My current "native tongue" is Go, so this is where one may expect comparisons between the languages. I try to admit biases when i *know* they are present: __Don't drag one language's idioms into another!__
 
 ## Typing
 
@@ -45,7 +45,7 @@ In fairness to Python and Java... the constraint is not without purpose or inten
 
 ## ``switch``
 
-My *true* native tongue is C, and i have worked in just about all the C-ish/patterned languages (C++,Java,C#,Go) - so i *expect* a ``switch`` statement. I used the ``match`` statement which forces this project to require uplevel (>= 3.10) Python. This is only in the ``cgtool`` "test caller". I disabled it in favor of the more traditional if-elif-else as the Python version (on my Mac) was 3.9.6.
+My *original* native tongue is C, and I have worked in just about all the C-ish/patterned languages (C++,Java,C#,Go) - so I *expect* a ``switch`` statement. I used the ``match`` statement which forces this project to require uplevel (>= 3.10) Python. This is only in the ``cgtool`` "test caller". I disabled it in favor of the more traditional if-elif-else as the Python version (on my Mac) was 3.9.6.
 
 ## Testing
 

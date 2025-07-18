@@ -10,6 +10,13 @@ class CGroup:
     CGroup is a utility class for ingesting all cgroup definitions on a
     system. It may be used for detecting problems in a config or for comparison
     between systems.
+
+    On the issue of invalid input
+    The thinking is that the input is only well-formatted files. In the Linux
+    world, these (specific) files are APIs. If an API is not behaving correctly
+    then something bad and unexpected has happened. The correct approach is to
+    throw an assertion when well defined interfaces change unexpectedly rather
+    than to proceed and drop or misconstrue data.
     """
 
     
@@ -248,10 +255,25 @@ class CGroup:
 
         # No try, let exceptions escape.
         with open(fn) as controllers_file:
-            # We know the format of the file. Perhaps a bit unsafe, but
-            # will work.
-            entire_file = controllers_file.read()
-            controllers = entire_file.split()
+            # The (strict) expectation of this file is that it is a single
+            # line. Treat it as such - at least for the simple parse case.
+            #
+            # Meaning:
+            #  - readline() should protect us from EOLs or other nonsense
+            #    in the file.
+            #  - split() should never have the oppurtunity to split on any
+            #    other type of whitespace.
+            #
+            # If read() is used instead of readline(), this may parse an
+            # invalid file.
+            first_line = controllers_file.readline()
+            controllers = first_line.split()
+
+            # This should be empty - throw if it is not.
+            next_line = controllers_file.readline()
+            if len(next_line) > 0:
+                raise Exception("Single line file has multiple lines")
+
 
         return controllers
 
@@ -278,7 +300,18 @@ class CGroup:
             for line in kvfile:
                 pair = line.split()
 
-                # STUB: Unprotected access! Fix this.
+                # One option might be to skip over this oddity, but since this
+                # is a well formatted file provided by an 'API' i think the
+                # assertion (blow it all up) is more appropriate.
+                #
+                # So, given the choice...
+                #  1. Drop the offending line. Return a list of parse errors.
+                #  2. Consider the file (or the parser) invalid, and fix.
+                #
+                # I chose option 2.
+                if len(pair) != 2:
+                    raise Exception("Invalid key-value line in key-value file")
+
                 key = pair[0]
                 value = pair[1]
                 kvpairs[key] = int(value)

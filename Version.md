@@ -7,13 +7,19 @@
 0.2.0   17-7-25 - Cleaned up the class.
                 - Implemented an error capturing method(ology).
                 - Added a README as github desires.
+0.3.0   18-7-25 - Added assertRaises() checks (with bad input) to unit test.
+                - Not proper TDD, but adding additional testing forces design
+                  issues to the surface. In this case the parsing rules around
+                  expected file formats was tightened. Discussion can be found
+                  in the CGroup class documentation.
+                - All tests pass.
 ```
 
 ## Todos
 
 ```text
 [ ] Research explicit decorators for public / private.
-[ ] Research additional testing.
+[_] Research additional testing.
 [ ] Setup a github action for automated testing.
 [ ] Design for how this might be distributed in / 'frozen' for a real
     deployment.
