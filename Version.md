@@ -13,7 +13,7 @@
                   expected file formats was tightened. Discussion can be found
                   in the CGroup class documentation.
                 - All tests pass.
-                - Added tests to cover unexpected / edge-cases and assertions.
+0.4.0           - Added tests to cover unexpected / edge-cases and assertions.
                   Again... these drive *and* cover expected behaviours. This
                   includes setup and tear-down of testing conditions that git
                   will not support.
