@@ -19,6 +19,7 @@ At this point it is just a day-ish of work, so is __far from complete__ with min
 
 - [The version file](Version.md) - Contains version and todos.
 - [About The Effort](docs/AboutTheEffort.md) - Loose notes on things perhaps worth remembering or thinking about.
+- [Potential next steps](docs/PotentialExtensions.md) - Potential non-PoC applications of this effort.
 
 ### Code
 

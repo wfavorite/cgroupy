@@ -213,6 +213,11 @@ class CGroup:
             proper_path = os.path.join(dir, filename)
             cgroup['cpu_stat'] = CGroup.ingest_stdkv(proper_path)
         except Exception as e:
+            # VOIR: This is flagged as an error (following a pattern
+            # VOIR: established with the other files). In this case CPU may not
+            # VOIR: be a constrained resource. The correct answer it to use the
+            # VOIR: cgroup.controllers file to determine the appropriate
+            # VOIR: response to this 'failure'.
             err_msg = f'Failed to ingest {filename}: {repr(e)}'
             errors.append(err_msg)
             cgroup['cpu_stat'] = {}

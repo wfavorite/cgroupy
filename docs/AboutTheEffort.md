@@ -12,9 +12,24 @@ This is a *list* of "Python things" that were interesting, frustrating, new, or 
 > NOTE
 >> My current "native tongue" is Go, so this is where one may expect comparisons between the languages. I try to admit biases when i *know* they are present: __Don't drag one language's idioms into another!__
 
+## Packaging
+
+One 'next step' for this project would be about making it a distributable *tool*. Something like [cx_Freeze](https://cx-freeze.readthedocs.io/en/stable/) would be a goto solution.
+
+Old school Unix developers have been taught to avoid static binaries to save memory. (Yes, I am taking the *long* route to a point.) Statically compiled was *bad*. This made more sense than statically compiling in ``libc`` functions that were sure to be memory resident at any time on a memory constrained Unix system. These concerns have long ago taken a back seat to issues prevalent in modern development.
+
+With the advent of "shopping cart" development where public libraries are brought in to solve all kinds of problems, it now becomes imperative to have deterministic behaviour of imported code. There are solutions for this, but the best solution (IMHO) for this is to force the issue at build time instead of run time.
+
+> On: "shopping cart" development
+>> This seems like a strongly biased term, but I am certainly not opposed to the concept. That said, "shopping" is an apt comparison as shoppers should be *informed* about what they are purchasing. Blindly importing a module/package may introduce a deeply flawed implementation or worse a security threat. This is not a Python-specific problem, but a relies-on-external-code problem.
+
+For Rust and Go users, this is implicit in the development process. Python requires extra steps that came *after* the language grew in popularity.
+
+I must admit that I would much prefer Rust or Go to binding this project into a single distributable object. The unhappy middle would probably be binding this into a single ``.py`` file which would be possible because it does not rely on modules outside the standard library. That would / should require *some* test coverage to guard against behaviour drift in the interpreter / standard libraries.
+
 ## Typing
 
-Python variables are not (naturally) typed. I leveraged the "typing" module to handle this. I consider it a 'bolt-on' and not a first class capability in the language. The ability to create custom types as a first-class capability of the language in Go is a major win in comparison - IMHO.
+Python variables are not (naturally) typed. I leveraged the "typing" module to handle this. (Despite it being in the standard library) I consider it a design 'bolt-on' / afterthought and not a first class capability in the language. The ability to create custom types as a first-class capability of the language in Go is a major win in comparison - IMHO.
 
 Custom types in Go are really convenient for making "Lego pieces" that fit together in a more structured / rules-based manner. For example: in the CGroup class there is a concept of a *name* and a *path*. They are both strings representing directories, but one is a modified version of the other. Creating these as custom types would protect against accidentally mixing them.
 

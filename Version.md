@@ -24,9 +24,13 @@
                   * Setup and tear down of test conditions around the tests.
                 - All tests pass.
 
+                - Added "Potential Extensions" documentation.
+
 ```
 
 ## Todos
+
+Note that todos are somewhat 'frozen'. If this were a __production__ project there would be considerably more. Todos are more representative of what i want to investigate than what a releasable project may require. I have included notes in the code (leveraging established keywords) and in the documentation commentary as to where additional focus would be required.
 
 ```text
 [ ] Research explicit decorators for public / private.
