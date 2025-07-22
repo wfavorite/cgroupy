@@ -2,15 +2,14 @@
 
 ## Why?
 
-I wanted to brush up on a couple of things, so i wrote a Python class / module
-to feed two hungry birds with one seed.
+I wanted to brush up on a couple of things, so I wrote a Python class / module to feed two hungry birds with one seed.
 
 ## Discovery time
 
-This is a *list* of "Python things" that were interesting, frustrating, new, or just general notes i wanted to take.
+This is a *list* of "Python things" that were interesting, frustrating, new, or just general notes I wanted to take.
 
 > NOTE
->> My current "native tongue" is Go, so this is where one may expect comparisons between the languages. I try to admit biases when i *know* they are present: __Don't drag one language's idioms into another!__
+>> My current "native tongue" is Go, so this is where one may expect comparisons between the languages. I try to admit biases when I *know* they are present: __Don't drag one language's idioms into another!__
 
 ## Packaging
 
