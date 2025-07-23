@@ -198,7 +198,16 @@ class CGroup:
             err_msg = f'Failed to ingest {filename}: {repr(e)}'
             errors.append(err_msg)
             cgroup['cgroup_controllers'] = []
-            
+
+        try:
+            filename = 'cgroup.subtree_control'
+            proper_path = os.path.join(dir, filename)
+            cgroup['subtree_control'] = CGroup.ingest_controllers(proper_path)
+        except Exception as e:
+            err_msg = f'Failed to ingest {filename}: {repr(e)}'
+            errors.append(err_msg)
+            cgroup['subtree_control'] = []
+
         try:
             filename = 'cgroup.stat'
             proper_path = os.path.join(dir, filename)
@@ -216,8 +225,8 @@ class CGroup:
             # VOIR: This is flagged as an error (following a pattern
             # VOIR: established with the other files). In this case CPU may not
             # VOIR: be a constrained resource. The correct answer it to use the
-            # VOIR: cgroup.controllers file to determine the appropriate
-            # VOIR: response to this 'failure'.
+            # VOIR: cgroup.controllers /  subtree_control files to determine
+            # VOIR: the appropriate response to this 'failure'.
             err_msg = f'Failed to ingest {filename}: {repr(e)}'
             errors.append(err_msg)
             cgroup['cpu_stat'] = {}

@@ -15,6 +15,8 @@ A number of conditions cause cgroup configurations to be invalid such as:
 
 These could be included in the discovery process and flagged as part of analysis tools.
 
+Rules could be applied - much like "linter rules" to a config. Such a ruleset may be more appropriate to performing 'actions' such as modifying a cgroup or adding PIDs as discussed in "Discovery / actions" below.
+
 ## Selective data gathering
 
 It would be appropriate to tie data collection to required items. The two primary selectors would be:
@@ -23,3 +25,16 @@ It would be appropriate to tie data collection to required items. The two primar
 - What is appropriate for the query. If a user requested information based on a single controller, then it would not be appropriate to (attempt to) collect information on all controllers.
 
 The design of the ``cgroup2`` filesystem interface is keyed appropriately for this purpose.
+
+## Discovery / actions
+
+> This is an extension to the "Known invalid items" above.
+
+Rules for taking actions (like modifying controllers, PIDs, threads...) are based on the current config. Like PIDs cannot be added to non-leaf or 'dying' cgroups, resources not belonging to the parent cannot be managed in the client, controllers cannot be modified until they are made active in the subtree_control file... If a tool were to be created that managed cgroups (or *a* specific cgroup), then this discovery would be helpful in preventing invalid configuration actions.
+
+Potential actions:
+
+- Adding / moving PIDs between cgroups
+- Delegating access
+- Managing resources
+- Feature mapping from ``/sys/kernel/cgroup`` files

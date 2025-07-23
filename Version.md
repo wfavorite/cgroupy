@@ -24,7 +24,8 @@
                   * Setup and tear down of test conditions around the tests.
                 - All tests pass.
 
-                - Added "Potential Extensions" documentation.
+        21-7-25 - Added "Potential Extensions" documentation.
+        23-7-25 - Continuing to drop minor notes into the documentation.
 
 ```
 
